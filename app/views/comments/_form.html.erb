@@ -1,4 +1,11 @@
-<%= form_with(model: [ @article, @article.comments.build ]) do |form| %>
+<%= form_with(model: [ @article, @article.comments.build ], local:true) do |form| %>
+  <% if @comment.errors.any? %>
+      <ul>
+        <% @comment.errors.full_messages.each do |message|%>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+  <% end %>
   <p>
     <%= form.label :commenter %><br>
     <%= form.text_field :commenter %>
