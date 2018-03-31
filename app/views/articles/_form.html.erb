@@ -1,5 +1,5 @@
 <div class="row">
-    <%= form_with model: @article, local: true, html: { multipart: true } do |form| %>
+    <%= form_with model: @article, local: true, html: { multipart: true }, class: "container" do |form| %>
         <% if @article.errors.any? %>
           <div id="error_explanation">
             <h2>
@@ -14,28 +14,20 @@
           </div>
         <% end %>
 
-        <div class="col-md-8 order-md-1">
+        <div class="col-md-12 order-md-1">
 
           <div class="row">
-            <div class="col-md-6 mb-3">
+            <div class="col-md-12 form-group">
               <%= form.label :title %><br>
               <%= form.text_field :title, class:"form-control", id:"firstName", placeholder:"", value:"", required:true %>
             </div>
 
-            <div class="col-md-6 mb-3">
+            <div class="col-md-12 form-group">
               <%= form.label :text %><br>
-              <%= form.text_area :text %>
+              <%= form.text_area :text, class:"form-control", rows:"10" %>
             </div>
 
-            <div class="col-md-6 mb-3">
-              <%= form.file_field :avatar %>
-            </div>
-
-            <div class="col-md-6 mb-3">
-              <%= form.file_field :avatar %>
-            </div>
-
-            <div class="col-md-6 mb-3">
+            <div class="col-md-12 form-group">
               <%= form.file_field :avatar %>
             </div>
 
