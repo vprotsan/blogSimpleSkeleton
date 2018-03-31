@@ -7,7 +7,6 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    @all_images = @article.avatar.url
   end
 
   def new
@@ -44,9 +43,6 @@ class ArticlesController < ApplicationController
 
     redirect_to articles_path
   end
-
-  # def has_attached_file
-  # end
 
   private
     def article_params

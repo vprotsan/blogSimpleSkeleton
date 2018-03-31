@@ -8,14 +8,7 @@
   <%= @article.text %>
 </p>
 
-<%= debug @article %>
-
-<%#= image_tag @article.avatar.url(:medium) %>
-<%#= @all_images.each do |image| %>
-<%#= image_tag image %>
-<%# end %>
-<%#= image_tag @article.avatar.url(:medium) %>
-<%#= image_tag @article.avatar.url(:thumb) %>
+<%= image_tag @article.avatar.url(:large) %>
 
 <h2>Comments</h2>
 <%= render @article.comments %>
