@@ -1,26 +1,32 @@
-<h1>Listing articles</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th colspan="2"></th>
-  </tr>
-
-  <% @articles.each do |article| %>
-    <tr>
-      <td><%= if image_tag article.avatar.url
-                image_tag article.avatar.url
-              end  %></td>
-      <td><%= article.title %></td>
-      <td><%= article.text %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td><%= link_to 'Destroy', article_path(article),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+          <% @articles.each do |article| %>
+              <div class="col-md-4">
+                  <div class="card mb-4 box-shadow">
+                    <%= if image_tag article.avatar.url
+                          image_tag article.avatar.url, class:"card-img-top", style:"height: 225px; width: 100%; display: block;"
+                        end  %>
+                    <div class="card-body">
+                      <h3><%= article.title %></h3>
+                      <p class="card-text"><%= article.text %></p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <%= link_to 'Show', article_path(article), class: "btn btn-sm btn-outline-secondary" %>
+                          <%= link_to 'Edit', edit_article_path(article), class: "btn btn-sm btn-outline-secondary" %>
+                          <%= link_to 'Destroy', article_path(article),
+                                  method: :delete,
+                                  data: { confirm: 'Are you sure?' },
+                                  class: "btn btn-sm btn-outline-secondary" %>
+                        </div>
+                        <small class="text-muted">9 mins</small>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          <% end %>
+      </div>
+    </div>
+</div>
 
 <%= link_to 'New article', new_article_path %>
