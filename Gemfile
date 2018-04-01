@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.5'
 gem "paperclip", "~> 6.0.0"
 gem 'hirb'
 gem 'jquery-rails'
+gem 'bcrypt'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
