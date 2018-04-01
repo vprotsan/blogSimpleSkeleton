@@ -8,7 +8,7 @@
   <%= @article.text %>
 </p>
 
-<%= image_tag @article.avatar.url(:large) %>
+<%= image_tag @article.avatar.url(:thumb) %>
 
 <h2>Comments</h2>
 <%= render @article.comments %>

@@ -1,0 +1,7 @@
+
+  $("#new-comment").on("ajax:success", function(e, data, status, xhr){
+    $("#new-comment").append(xhr.responseText);
+  })
+  .on "ajax:error", function(e, xhr, status, error){
+    $("#new-comment").append("<p>ERROR</p>");
+  }
