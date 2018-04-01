@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
   has_many :comments, dependent: :destroy
+  belongs_to :user
   validates :title, presence: true, length: { minimum: 5 }
 
   # validates :avatar, attachment_presence: true
@@ -8,3 +9,11 @@ class Article < ApplicationRecord
   validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 end
+
+# Also, the generator accepts column type as references (also available as belongs_to). For instance:
+# rails generate migration AddUserRefToProducts user:references
+# class AddUserRefToProducts < ActiveRecord::Migration[5.0]
+#   def change
+#     add_reference :products, :user, foreign_key: true
+#   end
+# end
