@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, length: { minimum: 6 }
 
-  def User.digest(string)
+  def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
@@ -23,6 +23,8 @@ class User < ApplicationRecord
 
   def remember
     self.remember_token = User.new_token
+    #update_attribute(name, value)
+    #Updates a single attribute and saves the record. This is especially useful for boolean flags on existing records. Also note that
     update_attribute(:remember_digest, User.digest(remember_token))
   end
 
