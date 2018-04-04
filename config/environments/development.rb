@@ -26,6 +26,17 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'gmail.com',
+    user_name:            'valeriyapro@gmail.com',
+    password:             '3mp3roR#nf0rcer',
+    authentication:       'plain',
+    enable_starttls_auto: true
+  }
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
@@ -53,4 +64,5 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   Paperclip.options[:command_path] = "/usr/local/bin/"
   config.serve_static_assets = true
+
 end
